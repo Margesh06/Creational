@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Factory</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #3c8dbc;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="text"], select, input[type="file"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #3c8dbc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3579a1;
+    }
+    .vehicle-item {
+      margin: 10px 0;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .vehicle-item img {
+      width: 60px;
+      height: auto;
+      margin-right: 15px;
+    }
+    #vehicle-list {
+      margin-top: 30px;
+    }
+    h2 {
+      color: #3c8dbc;
+    }
+    #map {
+      height: 400px;
+      margin-top: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Add a Vehicle</h1>
+
+    <form id="vehicle-form">
+      <label for="vehicle-select">Choose a vehicle type:</label>
+      <select id="vehicle-select" required>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+      </select>
+
+      <label for="vehicle-name">Vehicle Name:</label>
+      <input type="text" id="vehicle-name" placeholder="Enter vehicle name" required />
+
+      <label for="vehicle-model">Vehicle Model:</label>
+      <input type="text" id="vehicle-model" placeholder="Enter vehicle model" required />
+
+      <label for="vehicle-image">Vehicle Image:</label>
+      <input type="file" id="vehicle-image" accept="image/*" required />
+
+      <button type="submit">Add Vehicle</button>
+    </form>
+
+    <div id="vehicle-list">
+      <h2>Added Vehicles:</h2>
+    </div>
+
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="dist/app.js"></script>
+</body>
+</html>
